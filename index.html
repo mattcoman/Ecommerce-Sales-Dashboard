@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ecommerce Sales Dashboard</title>
+</head>
+<body>
+  <h1>Ecommerce Sales Dashboard</h1>
+  <input type="text" id="storeId" placeholder="Enter store ID">
+  <button onclick="getSales()">Get Sales</button>
+  <div id="sales"></div>
+
+  <script>
+    function getSales() {
+      var storeId = document.getElementById('storeId').value;
+      google.script.run.withSuccessHandler(displaySales).getSales(storeId);
+    }
+
+    function displaySales(data) {
+      document.getElementById('sales').innerHTML = data;
+    }
+  </script>
+</body>
+</html>
